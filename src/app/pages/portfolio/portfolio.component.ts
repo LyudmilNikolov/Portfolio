@@ -52,7 +52,7 @@ export class PortfolioComponent {
       techStack: '#Angular #Rxjs #Tailwind #Material',
       imageUrl: 'assets/Projects/ProjectEcom.png',
       githubUrl: 'https://github.com/LyudmilNikolov/EcomStore',
-      liveUrl: 'https://',
+      liveUrl: 'https://lyudmilnikolov.github.io/EcomStore/#/',
     },
     {
       title: 'Treasure Vault Mini Game',
