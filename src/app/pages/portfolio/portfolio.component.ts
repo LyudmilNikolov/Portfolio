@@ -35,7 +35,7 @@ export class PortfolioComponent {
       techStack: '#React #Redux #Antd #Chartjs #Axios',
       imageUrl: 'assets/Projects/ProjectCryptoNews.png',
       githubUrl: 'https://github.com/LyudmilNikolov/Crypto-News',
-      liveUrl: 'https://lyudmilnikolov.github.io/Crypto-News/',
+      liveUrl: 'https://lyudmilnikolov.github.io/Crypto-News/#/',
       isLatest: true
     },
     {
