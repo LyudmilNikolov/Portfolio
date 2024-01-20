@@ -8,6 +8,7 @@
             <div class="hidden lg:block">
                 <div class="flex h-full flex-col flex-nowrap items-center justify-center space-x-0 space-y-8 p-6 lg:flex lg:flex-row lg:justify-end lg:space-x-14 lg:space-y-0 lg:p-0">
                     <a class="text-xl hover:text-secondary lg:text-base" routerLink="/about-me"> About Me </a>
+                    <a class="text-xl hover:text-secondary lg:text-base" routerLink="blog"> Blog </a>
                     <a class="text-xl hover:text-secondary lg:text-base" routerLink="portfolio"> My Portfolio </a>
                     <a class="group inline-flex items-center gap-3 rounded-full border-2 border-primary px-8 py-4 hover:border-transparent hover:bg-senary hover:font-semibold hover:text-senary" routerLink="contact-me"> GET IN TOUCH <svg class="h-6 w-6 fill-primary group-hover:fill-tertiary" fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                             <path d="M5 17.59L15.59 7H9V5h10v10h-2V8.41L6.41 19L5 17.59Z" />
@@ -28,7 +29,8 @@
             <div *ngIf="isNavOpen" class="fixed inset-0 z-40 flex-none basis-full bg-primary text-lg transition duration-500 lg:hidden">
                 <div class="flex h-full flex-col items-center justify-center space-y-8 p-6">
                     <a class="text-xl hover:text-secondary lg:text-base" routerLink="/about-me" (click)="toggleNav()">About Me</a>
-                    <a class="text-xl hover:text-secondary lg:text-base" routerLink="/portfolio" (click)="toggleNav()">My Projects</a>
+                    <a class="text-xl hover:text-secondary lg:text-base" routerLink="blog" (click)="toggleNav()"> Blog </a>
+                    <a class="text-xl hover:text-secondary lg:text-base" routerLink="/portfolio" (click)="toggleNav()">My Portfolio</a>
                     <a class="group inline-flex items-center gap-3 rounded-full border-2 border-primary px-8 py-4 hover:border-transparent hover:bg-senary hover:font-semibold hover:text-senary" routerLink="/contact-me" (click)="toggleNav()">GET IN TOUCH</a>
                 </div>
             </div>

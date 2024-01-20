@@ -1,0 +1,45 @@
+<div class="mx-auto h-auto px-6 pb-3 text-primary sm:max-w-4xl md:max-w-4xl lg:max-w-6xl lg:px-12">
+    <div class="flex flex-col">
+        <div class="mb-10 flex-none">
+            <div class="inline-flex gap-2 font-open-sans text-xl font-bold">
+                <div class="before:text-secondary before:content-['<'] after:text-secondary after:content-['/>']"> Blog </div>
+            </div>
+        </div>
+        <div class="mb-10 flex-1 font-open-sans leading-relaxed text-tertiary md:w-1/2 lg:w-2/5"> Take a look at my blog posts </div>
+        <div class="mb-10 flex-1 md:w-1/2 lg:w-2/5">
+            <div class="flex flex-wrap gap-3 font-poppins sm:gap-6">
+                <div *ngFor="let blog of blogs; trackBy: trackByFn" class="inline-flex gap-2">
+                    <div class="text-tertiary before:text-secondary before:content-['//']"> {{blog.title}} </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="space-y-16 sm:space-y-12">
+        <div *ngFor="let blog of blogs; trackBy: trackByFn" class="flex flex-col gap-10 md:flex-row lg:gap-24">
+            <a [href]="blog.mediumUrl" target="_blank" rel="noreferrer" class="mt-12 h-72 flex-1 sm:mt-0">
+                <img class="h-full w-full rounded-2xl object-cover object-center" [src]="blog.imageUrl" [alt]="blog.title" />
+            </a>
+            <div class="flex-none md:w-2/5 lg:w-2/6">
+                <div class="flex h-full items-end">
+                    <div class="flex-1 space-y-8">
+                        <span *ngIf="blog?.isLatest" class="rounded-md bg-quaternary py-2 px-6 font-open-sans font-bold text-secondary"> Latest </span>
+                        <div class="space-y-8 font-poppins text-primary">
+                            <div class="text-3xl font-semibold">{{ blog.title }}</div>
+                            <div>{{ blog.techStack }}</div>
+                            <div>{{ blog.description }}</div>
+                        </div>
+                        <div class="flex items-center justify-between gap-6 md:justify-start">
+                            <a [href]="blog.githubUrl" target="_blank" rel="noreferrer" class="inline-flex items-center rounded-lg bg-tertiary py-2 px-3 font-poppins text-sm before:content-['<'] after:content-['>'] hover:bg-quaternary hover:text-secondary"> / </a>
+                            <div class="font-open-sans">
+                                <a [href]="blog.mediumUrl" target="_blank" rel="noreferrer" class="group inline-flex items-center gap-2 rounded-full border-2 border-primary px-6 py-2 hover:border-transparent hover:bg-senary hover:font-semibold hover:text-senary"> SEE IT HERE <svg class="h-6 w-6 fill-primary group-hover:fill-tertiary" fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                        <path d="M5 17.59L15.59 7H9V5h10v10h-2V8.41L6.41 19L5 17.59Z" />
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
