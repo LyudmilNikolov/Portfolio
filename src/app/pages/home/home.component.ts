@@ -1,37 +1,26 @@
-import { ChangeDetectionStrategy, Component, OnDestroy, OnInit, signal } from '@angular/core';
-import { Subject, takeUntil } from 'rxjs';
+import { AsyncPipe } from '@angular/common';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { map } from 'rxjs';
 import { TypewriterService } from '../../services/typewriter.service';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [],
+  imports: [AsyncPipe],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class HomeComponent implements OnInit, OnDestroy {
+export class HomeComponent {
   titles = [
     "Software Developer",
     "Contractor",
     "Open Source Enthusiast",
   ];
-  typedText = signal('');
 
-  private destroy$ = new Subject<void>();
+  private typewriterService = inject(TypewriterService);
 
-  constructor(private typewriterService: TypewriterService) {}
-
-  ngOnInit(): void {
-    this.typewriterService.getTypewriterEffect(this.titles)
-      .pipe(takeUntil(this.destroy$))
-      .subscribe(text => {
-        this.typedText.set(text);
-      });
-  }
-
-  ngOnDestroy(): void {
-    this.destroy$.next();
-    this.destroy$.complete();
-  }
+  typedText$ = this.typewriterService
+    .getTypewriterEffect(this.titles)
+    .pipe(map((text) => text));
 }

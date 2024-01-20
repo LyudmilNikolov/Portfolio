@@ -14,7 +14,7 @@ interface TypeParams {
 export class TypewriterService {
   private type({ word, speed, backwards = false }: TypeParams) {
     return interval(speed).pipe(
-      map(x => backwards ? word.substr(0, word.length - x - 1) : word.substr(0, x + 1)),
+      map(x => backwards ? word.substring(0, word.length - x) : word.substring(0, x + 1)),
       take(word.length)
     );
   }
